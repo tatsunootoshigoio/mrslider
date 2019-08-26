@@ -1,5 +1,5 @@
 #-------------------------------------------------#
-# Rxy vs. 2theta interactive fit ploter v0.2      #
+# Rxy vs. 2theta interactive fit plot v0.2        #
 # author: Lukasz Pawliszak, lupa.inmat@gmail.com  #
 #-------------------------------------------------#
 

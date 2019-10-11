@@ -3,7 +3,7 @@
 # author: tatsunootoshigo, 7475un00705hi90@gmail.com #
 #----------------------------------------------------#
 
-#imports
+# imports
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.widgets import Slider, Button, RadioButtons
@@ -17,8 +17,8 @@ version_name = 'mr_fit_slider_plot_v' + version + '.py'
 # parameter adjustment step
 valstep_R0 = 1e-2
 
-sample_mdate = '130618'
-sample_id = 'LP006'
+sample_mdate = '1111019'
+sample_id = '000000'
 model_symbol = 'A'
 plot_title = 'model' + model_symbol 
 
@@ -29,6 +29,7 @@ MR_ratio = ([0.82, 0.609, 0.371, 0.183, 0.109, 0.118],[0.026, 0.035, 0.053, 0.01
 Delta_R_R0 = ([0.456, 0.235, 0.092, 0.020, 0.01, 0.006],[0.015, 0.014, 0.013, 0.002, 0.012, 0.02],[0.442, 0.235, 0.084, 0.02, 0.021, 0.08]) 
 print(MR_ratio[0])
 
+# adjust axis min/max and number fromat precision
 xmin = 0
 xmax = 500
 
@@ -41,25 +42,14 @@ yprec = 2
 desc_x = 0.1
 desc_y = 0.1
 
+# define string for plot axis labels
 axis_label_theta = r'$\theta\, / \, \circ$'
 axis_label_nm = r'$d_F\;/\;nm$'
 axis_label_ohm = r'$R\;/\;\Omega$'
-#axis_label_delta_Ryz = r'$\frac{R_{xx}(H_y)-R_{xx}(H_z)}{R_{xx}(H_z)}\cdot100\%$'
 axis_label_delta_Ryz = r'$\Delta R_{SMR}\;/\;\%$'
 
-#file_xy = sample_mdate + sample_id + '-xy.txt'
-
-#x1, y1 = np.loadtxt(file_xy, skiprows=3, usecols=(0,2), unpack=True)
-# normalizng the x axis data to 360 deg
-
-# Kim et al. paper
-#x1 =  FM_thickness
-#xx1 = x1 * (xmax / np.amax(x1))
-#y1 = Delta_R_R0[2]
-
-# Kawaguchi et al. paper
+# data series for the plot
 x1 =  FM_thickness
-#xx1 = x1 * (xmax / np.amax(x1))
 y1 = MR_ratio[2]
 
 # initial paremeter values
@@ -92,11 +82,6 @@ dn_2lambdan = (d_N / 2.0*lambda_N)
 df_2lambdaf = (d_F / 2.0*lambda_F)
 lambdan_dn = (lambda_N / d_N)
 lambdaf2_df = (2.0*lambda_F / d_F)
-
-#tanh_dn_lambdan = np.sinh(dn_lambdan) / np.cos(dn_lambdan)
-#tanh_df_lambdaf = np.sinh(df_lambdaf) / np.cos(df_lambdaf)
-#tanh_dn_2lambdan = np.sin(dn_2lambdan) / np.cos(dn_2lambdan)
-#tanh_df_2lambdaf = np.sin(df_2lambdaf) / np.cos(df_2lambdaf)
 
 #x_N_mcd = (rho_N*xdf) / (rho_N*xdf + rho_F*d_N)
 #x_N_mab = (rho_N*d_F / rho_F*d_N)
@@ -133,6 +118,7 @@ def custom_axis_formater(custom_title, custom_x_label, custom_y_label, xmin, xma
 	
 	# get axes and tick from plot 
 	ax = plt.gca()
+	
 	# set the number of major and minor bins for x,y axes
 	# prune='lower' --> remove lowest tick label from x axis
 	xmajorLocator = MaxNLocator(12, prune='lower') 

@@ -76,6 +76,7 @@ label_xy_fit = r'$fit$'
 xdf = np.arange(0.1, 1.25*xmax, 0.1)
 d_F = xdf
 
+# some usefull variables to make the fitting function easier to read
 dn_lambdan = (d_N / lambda_N)
 df_lambdaf = (d_F / lambda_F)
 dn_2lambdan = (d_N / 2.0*lambda_N)

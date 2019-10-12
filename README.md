@@ -18,5 +18,5 @@ TODO:
 - [ ] add add multi model support for the fitting 
 - [ ] add save to .pdf file button
 - [ ] get rid of the hardcoded data and add read from file support
-- [ ] code ceanup
+- [ ] code cleanup
 
